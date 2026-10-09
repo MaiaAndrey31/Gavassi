@@ -1,0 +1,291 @@
+/* ============================================================
+   O ESPAÇO
+   Padrão (mobile / reduced): cenas em tela cheia empilhadas com sticky nativo.
+   Desktop com movimento: cenas em camadas dentro do palco do Momentos.
+   ============================================================ */
+
+.espaco {
+  display: flex;
+  flex-direction: column;
+}
+.espaco__head {
+  order: -1;
+  padding: clamp(4rem, 10svh, 7rem) var(--gutter) clamp(2.5rem, 6svh, 4rem);
+  display: grid;
+  gap: 1.1rem;
+}
+.espaco__head .label {
+  color: var(--blush-ink);
+}
+.espaco__title {
+  font-size: var(--fs-h1);
+}
+.espaco__title em {
+  font-style: italic;
+}
+.espaco__lead {
+  font-size: var(--fs-lead);
+  line-height: 1.45;
+  max-width: 30ch;
+  color: var(--ink-2);
+}
+.espaco__lead .mask {
+  display: block;
+}
+.espaco .reveal {
+  display: inline-block;
+}
+.espaco__addr {
+  display: grid;
+  justify-items: start;
+  gap: 0.9rem;
+  margin-top: 0.6rem;
+  font-style: normal;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+.espaco__route {
+  padding-bottom: 3px;
+  border-bottom: 1px solid currentColor;
+  color: var(--ink);
+}
+@media (hover: hover) {
+  .espaco__route:hover {
+    color: var(--blush-ink);
+  }
+}
+
+.escena {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
+  color: var(--on-night);
+}
+.escena__media {
+  position: absolute;
+  inset: 0;
+}
+.escena__media picture {
+  width: 100%;
+  height: 100%;
+}
+.escena__media img {
+  will-change: transform;
+}
+.escena::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgb(20 15 13 / 0.82) 0%, rgb(20 15 13 / 0.42) 30%, rgb(20 15 13 / 0.08) 55%, transparent 70%);
+  opacity: var(--shade, 1); /* no mobile, a sombra da 1ª cena entra depois da troca com Momentos */
+  pointer-events: none;
+}
+.escena__caption {
+  position: absolute;
+  z-index: 2;
+  left: var(--gutter);
+  right: var(--gutter);
+  bottom: max(2.4rem, 6svh);
+  display: grid;
+  gap: 0.8rem;
+}
+.escena__caption > *,
+.escena__items {
+  overflow: hidden;
+}
+.escena__n {
+  color: var(--on-night-2);
+}
+.escena__title {
+  font-size: clamp(2.2rem, 9vw, 5.6rem);
+  line-height: 1;
+}
+.escena__items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.6rem;
+  color: var(--on-night);
+}
+.escena__items li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.escena__items li::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--blush);
+}
+.espaco__shade,
+.espaco__count {
+  display: none;
+}
+
+/* mobile/tablet: foto horizontal em 4:3 sobre fundo escuro, legenda abaixo —
+   em vez de recortar ~25% da largura numa tela vertical */
+@media (max-width: 1023.98px) {
+  .escena[data-orient='landscape'] {
+    background: var(--night);
+  }
+  .escena[data-orient='landscape'] .escena__media {
+    inset: auto 0 auto 0;
+    top: max(4.5rem, 12svh);
+    aspect-ratio: 4 / 3;
+  }
+  .escena[data-orient='landscape']::after {
+    background: none;
+  }
+  /* legenda logo abaixo da foto (4:3 → altura = 75vw) */
+  .escena[data-orient='landscape'] .escena__caption {
+    top: calc(max(4.5rem, 12svh) + 75vw + 1.8rem);
+    bottom: auto;
+  }
+}
+@media (min-width: 600px) and (max-width: 1023.98px) {
+  .escena[data-orient='landscape'] .escena__media {
+    aspect-ratio: 16 / 10;
+  }
+  .escena[data-orient='landscape'] .escena__caption {
+    top: calc(max(4.5rem, 12svh) + 62.5vw + 2.2rem);
+  }
+}
+
+/* ---------- mobile/tablet com movimento: continuação direta de Momentos ----------
+   O Espaço sobe 100svh (margem negativa) e começa exatamente sobre o último quadro do palco de
+   Momentos — a foto do salão em tela cheia. A 1ª cena fica oculta até esse ponto (JS) e o
+   cabeçalho passa a ficar sobre a foto, como no desktop (sem bloco de papel entre as duas). */
+@media (max-width: 1023.98px) and (prefers-reduced-motion: no-preference) {
+  .espaco {
+    position: relative;
+    z-index: 2;
+    margin-top: -100svh;
+  }
+  /* cabeçalho sobre a foto, fixo no topo enquanto a 1ª cena está na tela.
+     Altura 0: não desloca a foto (que precisa coincidir com o último quadro de Momentos). */
+  .espaco__head {
+    position: sticky;
+    /* acima da 1ª cena (z 1) e coberto pela 2ª (z 2) ao subir: em flex, `order: -1` faz o cabeçalho
+       ser pintado antes dos irmãos de mesmo z-index */
+    z-index: 2;
+    top: 0;
+    height: 0;
+    padding: 0 var(--gutter);
+    overflow: visible;
+    color: var(--on-night);
+    text-shadow: 0 1px 18px rgb(20 15 13 / 0.35);
+  }
+  .espaco__head > :first-child {
+    margin-top: calc(4.6rem + 4svh);
+  }
+  .espaco__head::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 75svh;
+    background: linear-gradient(to bottom, rgb(20 15 13 / 0.66), rgb(20 15 13 / 0.3) 60%, transparent);
+    pointer-events: none;
+  }
+  /* permanência: a 1ª cena (o salão que veio de Momentos) fica na tela antes da próxima subir */
+  .escena:first-child {
+    margin-bottom: 80svh;
+  }
+  .espaco__head .label {
+    color: var(--on-night-2);
+  }
+  .espaco__lead,
+  .espaco__addr,
+  .espaco__route {
+    color: var(--on-night);
+  }
+}
+
+/* ---------- desktop com movimento ---------- */
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  .espaco {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: block;
+  }
+  .espaco__scenes {
+    position: absolute;
+    inset: 0;
+  }
+  .escena {
+    position: absolute;
+    inset: 0;
+    height: auto;
+    will-change: clip-path;
+  }
+
+  .escena__caption {
+    right: auto;
+    bottom: 8vh;
+    max-width: 44rem;
+  }
+  .escena__title {
+    font-size: clamp(3rem, 5.4vw, 6.4rem);
+  }
+  .espaco__shade {
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+    /* a foto real do salão é clara: sombra mais presente no canto do título/endereço */
+    background: radial-gradient(ellipse 62% 78% at 0% 22%, rgb(20 15 13 / 0.74), rgb(20 15 13 / 0.32) 55%, transparent 78%);
+  }
+  .espaco__head {
+    position: absolute;
+    z-index: 20;
+    top: 12vh;
+    left: 0;
+    padding: 0 var(--gutter);
+    color: var(--on-night);
+    text-shadow: 0 1px 22px rgb(20 15 13 / 0.35);
+  }
+  .espaco__head .label {
+    color: var(--on-night-2);
+  }
+  .espaco__title {
+    font-size: clamp(4rem, 8vw, 9.5rem);
+  }
+  .espaco__lead {
+    color: var(--on-night);
+    max-width: 26ch;
+  }
+  .espaco__addr,
+  .espaco__route {
+    color: var(--on-night);
+  }
+  @media (hover: hover) {
+    .espaco__route:hover {
+      color: var(--blush);
+    }
+  }
+  .espaco__count {
+    display: flex;
+    gap: 0.5rem;
+    position: absolute;
+    z-index: 20;
+    right: var(--gutter);
+    bottom: 8vh;
+    color: var(--on-night);
+    line-height: 1.3;
+  }
+  .espaco__count-win {
+    height: 1.3em;
+    overflow: hidden;
+  }
+  .espaco__count-track {
+    display: flex;
+    flex-direction: column;
+  }
+}

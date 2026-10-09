@@ -1,0 +1,427 @@
+/* ============================================================
+   ABERTURA — Hero + Manifesto
+   Layout padrão (mobile / reduced motion): fluxo vertical.
+   Desktop com movimento: palco único em camadas (ver final).
+   ============================================================ */
+
+.opening {
+  position: relative;
+}
+
+/* ---------------- HERO ---------------- */
+
+.hero {
+  position: relative;
+  height: 100svh;
+  min-height: 560px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero__frame-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  will-change: transform;
+}
+.hero__frame {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  clip-path: inset(15svh 4vw 3svh 4vw round 46vw 46vw 0 0);
+  will-change: clip-path;
+}
+.hero__img {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
+.hero__name {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  font-size: clamp(4rem, 21vw, 17rem);
+  font-weight: 300;
+  letter-spacing: -0.035em;
+  line-height: 0.86;
+}
+.hero__line {
+  position: absolute;
+  display: block;
+  will-change: transform;
+}
+.hero__line--1 {
+  top: calc(5.4rem + 2svh);
+  left: var(--gutter);
+  z-index: 3;
+  transform-origin: 0 0;
+}
+.hero__line--2 {
+  right: var(--gutter);
+  bottom: 3svh;
+  z-index: 3;
+  transform-origin: 100% 100%;
+}
+.hero__line--2 em {
+  font-style: italic;
+  font-weight: 280;
+}
+
+.hero__float {
+  position: absolute;
+  overflow: hidden;
+  will-change: transform;
+}
+.hero__float picture {
+  width: 100%;
+  height: 100%;
+}
+.hero__float--a {
+  z-index: 4;
+  left: 5vw;
+  bottom: 17svh;
+  width: 23vw;
+  aspect-ratio: 3 / 4.2;
+  border-radius: 999px;
+}
+.hero__float--b {
+  z-index: 1;
+  right: 6vw;
+  top: 33svh;
+  width: 18vw;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+.hero__meta {
+  position: absolute;
+  z-index: 5;
+  color: var(--ink-2);
+}
+.hero__meta > * {
+  display: inline-block;
+}
+.hero__kicker {
+  top: 4.6rem;
+  left: var(--gutter);
+  max-width: 14rem;
+}
+.hero__since {
+  top: 4.6rem;
+  right: var(--gutter);
+}
+.hero__cue {
+  display: none;
+}
+
+/* ---------------- MANIFESTO ---------------- */
+
+.manifesto {
+  position: relative;
+  padding: 14svh var(--gutter) 8svh;
+  background: var(--paper);
+  overflow-x: clip;
+}
+.manifesto__eyebrow {
+  color: var(--blush-ink);
+  margin-bottom: 4svh;
+}
+.mline {
+  position: relative;
+  min-height: 72svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2.4rem;
+}
+.mline__text {
+  font-size: clamp(2.7rem, 11.5vw, 6.5rem);
+  max-width: 11ch;
+  line-height: 0.98;
+
+}
+.mline__text em {
+  color: var(--blush-ink);
+}
+.mline:nth-child(odd) .mline__text {
+  align-self: flex-end;
+  text-align: right;
+}
+
+/* Fotos do manifesto: escala de viewport, sangrando pelas bordas (crop intencional).
+   Mobile: uma foto grande por frase, alternando o lado de entrada. */
+.piece {
+  --bleed: calc(-1 * var(--gutter) - 12vw);
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+}
+.piece picture {
+  width: 100%;
+  height: 100%;
+}
+.piece--0 {
+  /* balões — círculo */
+  width: 80vw;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  align-self: flex-end;
+  margin-right: var(--bleed);
+}
+.piece--1 {
+  /* mesa fundo do mar — arco */
+  width: 68vw;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius-arch);
+  align-self: flex-start;
+  margin-left: var(--bleed);
+}
+.piece--2 {
+  /* mesa posta — vertical */
+  width: 64vw;
+  aspect-ratio: 4 / 5;
+  border-radius: 1.5rem;
+  align-self: flex-end;
+  margin-right: calc(var(--bleed) + 4vw);
+}
+.piece--3 {
+  /* fachada — arco grande */
+  width: 84vw;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius-arch);
+  align-self: flex-start;
+  margin-left: var(--bleed);
+}
+
+/* ---------------- tablet / desktop (estático) ---------------- */
+
+@media (min-width: 768px) {
+  .hero__frame {
+    clip-path: inset(13svh 9vw 4svh 9vw round 41vw 41vw 0 0);
+  }
+  .hero__float--a {
+    width: 15vw;
+  }
+  .hero__float--b {
+    width: 12vw;
+  }
+  .piece--0 {
+    width: 58vw;
+  }
+  .piece--1 {
+    width: 48vw;
+  }
+  .piece--2 {
+    width: 44vw;
+  }
+  .piece--3 {
+    width: 62vw;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    height: 100vh;
+    min-height: 640px;
+  }
+  /* arco GRANDE desde o primeiro frame (espelha archDesktop() em Opening.tsx) */
+  .hero__frame {
+    --hw: min(clamp(700px, 62vw, 1250px), 92vw);
+    --hh: min(clamp(560px, 82vh, 950px), 88vh);
+    clip-path: inset(
+      calc(100vh - var(--hh) - 5vh) calc((100vw - var(--hw)) / 2) 5vh calc((100vw - var(--hw)) / 2) round
+        calc(var(--hw) / 2) calc(var(--hw) / 2) 0 0
+    );
+  }
+  .hero__name {
+    font-size: var(--fs-display);
+  }
+  .hero__line--1 {
+    top: 10vh;
+  }
+  .hero__line--2 {
+    bottom: 3.5vh;
+  }
+  .hero__float--a {
+    left: 4.5vw;
+    bottom: 13vh;
+    width: 13vw;
+  }
+  .hero__float--b {
+    right: 4vw;
+    top: 27vh;
+    width: 12vw;
+  }
+  /* com o arco grande, o canto inferior esquerdo é foto: o kicker sobe para o canto
+     superior direito, livre ao lado da cúpula do arco */
+  .hero__kicker {
+    top: calc(1.4rem + 2.9rem + 2.2vh);
+    left: auto;
+    right: var(--gutter);
+    max-width: 13rem;
+    text-align: right;
+  }
+  .hero__since {
+    top: 50%;
+    right: calc(var(--gutter) - 0.4rem);
+    writing-mode: vertical-rl;
+    transform: translateY(-50%);
+  }
+  .hero__cue {
+    display: none;
+    align-items: center;
+    gap: 0.9rem;
+    left: var(--gutter);
+    bottom: 5.5vh;
+    color: var(--ink);
+  }
+  .hero__cue i {
+    position: relative;
+    width: 3.2rem;
+    height: 1px;
+    background: color-mix(in srgb, var(--ink) 22%, transparent);
+    overflow: hidden;
+  }
+  .hero__cue i::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--ink);
+    transform-origin: 0 50%;
+    animation: cue 2.4s var(--ease-inout) infinite;
+  }
+
+  .mline {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 80vh;
+  }
+  .mline:nth-child(odd) {
+    flex-direction: row-reverse;
+  }
+  .mline__text {
+    font-size: clamp(3rem, 6.4vw, 7.5rem);
+  }
+  .piece,
+  .piece--0,
+  .piece--1,
+  .piece--2,
+  .piece--3 {
+    width: 30vw;
+    margin: 0;
+  }
+}
+
+/* "role para montar a festa" só onde há espaço fora da foto */
+@media (min-width: 1600px) {
+  .hero__cue {
+    display: flex;
+  }
+}
+
+@keyframes cue {
+  0% {
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+  }
+  50% {
+    transform: scaleX(1);
+    transform-origin: 0 50%;
+  }
+  50.01% {
+    transform-origin: 100% 50%;
+  }
+  100% {
+    transform: scaleX(0);
+    transform-origin: 100% 50%;
+  }
+}
+
+/* ============================================================
+   DESKTOP COM MOVIMENTO — palco único em camadas (pin via GSAP)
+   Mesma condição de MQ.desktop em src/lib/gsap.ts
+   ============================================================ */
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  .opening {
+    height: 100vh;
+    overflow: hidden;
+  }
+  .hero {
+    position: absolute;
+    inset: 0;
+    height: auto;
+    min-height: 0;
+  }
+  .manifesto {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    padding: 0;
+    clip-path: inset(100% 44% 0 44%);
+  }
+  .manifesto__eyebrow {
+    position: absolute;
+    top: 11vh;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin: 0;
+  }
+  .mline,
+  .mline:nth-child(odd) {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    place-content: center;
+    min-height: 0;
+  }
+  .mline__text,
+  .mline:nth-child(odd) .mline__text {
+    position: relative;
+    z-index: 2;
+    max-width: 12ch;
+    text-align: center;
+    align-self: center;
+    /* halo cor de papel: a tipografia continua legível quando passa sobre uma foto de fundo */
+    text-shadow:
+      0 0 0.18em rgb(245 240 232 / 0.85),
+      0 0 0.5em rgb(245 240 232 / 0.55);
+  }
+  /* Três planos: fotos de FUNDO (z1) → tipografia (z2) → fotos de FRENTE (z3).
+     As fotos saem pelas bordas da viewport — o crop faz parte da composição. */
+  .piece {
+    position: absolute;
+    margin: 0;
+  }
+  .piece--0 {
+    /* FUNDO · superior esquerda — mesa azul, círculo saindo pelo topo/esquerda */
+    z-index: 1;
+    left: -6vw;
+    top: -9vh;
+    width: 32vw;
+  }
+  .piece--1 {
+    /* FRENTE · inferior esquerda — mesa fundo do mar, arco saindo pela base */
+    z-index: 3;
+    left: 8vw;
+    bottom: -15vh;
+    width: 24vw;
+  }
+  .piece--2 {
+    /* FRENTE · superior direita — mesa posta, cortada pela borda direita */
+    z-index: 3;
+    right: -4vw;
+    top: 3vh;
+    width: 26vw;
+  }
+  .piece--3 {
+    /* FUNDO · inferior direita — fachada (maior resolução), a maior foto; passa atrás do texto */
+    z-index: 1;
+    right: -3vw;
+    bottom: -22vh;
+    width: 38vw;
+  }
+}

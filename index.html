@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Heloisa Gavazzi · Festas infantis e decoração em Adamantina — SP</title>
+    <meta
+      name="description"
+      content="Festas infantis montadas à mão, detalhe por detalhe. Decoração, espaço de festas climatizado, buffet e recreação com monitores em Adamantina — SP. Há 15 anos fazendo festas."
+    />
+    <meta name="theme-color" content="#f5f0e8" />
+    <link rel="canonical" href="%SITE_URL%/" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Heloisa Gavazzi" />
+    <meta property="og:title" content="Heloisa Gavazzi · Festas infantis em Adamantina — SP" />
+    <meta property="og:description" content="Toda criança merece uma festa. Decoração, espaço, buffet e recreação — montados à mão, detalhe por detalhe." />
+    <meta property="og:url" content="%SITE_URL%/" />
+    <meta property="og:image" content="%SITE_URL%/og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Decoração de festa infantil com tema fundo do mar montada pela Heloisa Gavazzi" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Heloisa Gavazzi · Festas infantis em Adamantina — SP" />
+    <meta name="twitter:description" content="Toda criança merece uma festa. Decoração, espaço, buffet e recreação — montados à mão." />
+    <meta name="twitter:image" content="%SITE_URL%/og.jpg" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- somente o essencial da primeira dobra -->
+    <link rel="preload" href="/fonts/fraunces-soft.woff2" as="font" type="font/woff2" crossorigin />
+    <!--hero-preload-->
+
+    <script>
+      // trava o scroll durante o preloader (com fail-safe) e evita restaurar no meio de um pin
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+      document.documentElement.classList.add('is-loading');
+      setTimeout(function () {
+        document.documentElement.classList.remove('is-loading');
+      }, 6000);
+    </script>
+
+    <!-- Dados estruturados: SOMENTE informações confirmadas. URLs absolutas dependem do domínio (ver .env) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Espaço Heloísa Gavazzi",
+        "alternateName": "Heloisa Gavazzi Festas Infantis",
+        "description": "Festas infantis, decoração de festas, espaço de festas climatizado, buffet e recreação com monitores.",
+        "url": "%SITE_URL%/",
+        "image": "%SITE_URL%/og.jpg",
+        "telephone": "+55 18 99704-6013",
+        "foundingDate": "2011",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "R. Tsunekishi Sakai, 127 - Vila Joaquim",
+          "addressLocality": "Adamantina",
+          "addressRegion": "SP",
+          "postalCode": "17800-000",
+          "addressCountry": "BR"
+        },
+        "geo": { "@type": "GeoCoordinates", "latitude": -21.6812482, "longitude": -51.0779056 },
+        "hasMap": "https://www.google.com/maps/place/Espa%C3%A7o+Helo%C3%ADsa+Gavazzi/@-21.6812482,-51.0779056,17z/data=!4m6!3m5!1s0x9496a344b3018f65:0xc92d24f71663867a!8m2!3d-21.6812482!4d-51.0779056!16s%2Fg%2F11sv2hfq2v",
+        "areaServed": "Adamantina e região",
+        "sameAs": ["https://www.instagram.com/helogavazzi/", "https://www.facebook.com/heloisagavazzifestasinfantis/"]
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"><!--app-html--></div>
+    <noscript>
+      <p style="padding: 2rem; font-family: system-ui">
+        Heloisa Gavazzi — Festas infantis em Adamantina — SP. WhatsApp:
+        <a href="https://wa.me/5518997046013">(18) 99704-6013</a> · Instagram:
+        <a href="https://www.instagram.com/helogavazzi/">@helogavazzi</a>
+      </p>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

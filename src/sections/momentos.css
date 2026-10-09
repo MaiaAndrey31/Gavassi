@@ -1,0 +1,194 @@
+/* ============================================================
+   MOMENTOS — sequência fotográfica central
+   Padrão (reduced motion): título, subtítulo e fotos em sequência vertical, no formato natural.
+   Com movimento: palco de 100% da tela (pin no desktop, sticky no mobile) com a pilha central;
+   a geometria espelha LAYOUT em MomentosEspaco.tsx (unidades cq do palco).
+   ============================================================ */
+
+.momentos {
+  padding: clamp(5rem, 14svh, 9rem) 0 clamp(4rem, 10svh, 7rem);
+  overflow-x: clip;
+}
+.momentos__head {
+  position: relative;
+  z-index: 20;
+  text-align: center;
+  padding-inline: var(--gutter);
+}
+.momentos__title {
+  font-size: clamp(3.4rem, 15vw, 11rem);
+  font-weight: 300;
+  letter-spacing: -0.04em;
+}
+.momentos__sub {
+  position: relative;
+  z-index: 20;
+  margin-top: 1rem;
+  padding-inline: var(--gutter);
+  text-align: center;
+  max-width: none;
+}
+.momentos__sub-in {
+  display: inline-block; /* permite transform na entrada do subtítulo */
+}
+
+/* pilha — no padrão, uma foto abaixo da outra */
+.mstack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(2.5rem, 7vh, 5rem);
+  margin-top: clamp(3rem, 8vh, 5rem);
+  padding-inline: var(--gutter);
+}
+/* cada foto no formato natural: proporção real (--ar) e nunca maior que a largura natural (--nw) */
+.mstack__item {
+  width: min(100%, 900px, calc(70svh * var(--ar)), var(--nw));
+  aspect-ratio: var(--ar);
+  overflow: hidden;
+  background: var(--linen);
+}
+.mstack__item picture {
+  width: 100%;
+  height: 100%;
+}
+.mstack__item img {
+  will-change: transform;
+}
+.mfinal {
+  display: none;
+}
+
+/* ============================================================
+   COM MOVIMENTO (desktop e mobile): palco + pilha central
+   ============================================================ */
+@media (prefers-reduced-motion: no-preference) {
+  .momentos__stage {
+    position: relative;
+    height: 100svh;
+    overflow: hidden;
+    container-type: size;
+  }
+  .momentos__head {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(4.6rem + 2svh);
+    pointer-events: none;
+  }
+  .momentos__title {
+    font-size: clamp(3rem, 13vw, 5.5rem);
+    will-change: transform, opacity;
+  }
+  .momentos__sub {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 5svh;
+    margin: 0;
+  }
+
+  .mstack {
+    position: absolute;
+    inset: 0;
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+  /* todas centradas no mesmo ponto; o deslocamento editorial vem do GSAP (transform) */
+  .mstack__item {
+    position: absolute;
+    left: 50%;
+    top: 55%;
+    translate: -50% -50%; /* propriedade separada: soma com o transform animado */
+    width: min(86cqw, calc(58cqh * var(--ar)), var(--nw));
+    will-change: transform, clip-path;
+  }
+
+  /* a foto final: elemento do tamanho "cover" do palco, reduzido por transform até o formato natural */
+  .mfinal {
+    display: block;
+    position: absolute;
+    inset: 0;
+    container-type: size;
+    clip-path: inset(50% 50% 50% 50%);
+    will-change: clip-path;
+  }
+  .mfinal__img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: max(100cqw, calc(100cqh * var(--ar)));
+    aspect-ratio: var(--ar);
+    transform-origin: 50% 50%;
+    will-change: transform;
+  }
+  .mfinal__img picture {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* ---------- mobile/tablet com movimento: palco sticky dentro de uma seção alta ---------- */
+@media (max-width: 1023.98px) and (prefers-reduced-motion: no-preference) {
+  .gather {
+    position: relative;
+  }
+  .momentos {
+    position: relative;
+    z-index: 1;
+    height: 660svh; /* ~70svh de scroll por etapa da timeline */
+    padding: 0;
+  }
+  .momentos__stage {
+    position: sticky;
+    top: 0;
+  }
+  .momentos__sub {
+    bottom: calc(5svh + 3.4rem); /* acima do botão flutuante do WhatsApp */
+  }
+}
+
+/* ---------- desktop com movimento: palco único com o Espaço (pin via GSAP) ---------- */
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  .gather {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+  }
+  .momentos {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    padding: 0;
+    background: var(--paper);
+  }
+  .momentos__stage {
+    position: absolute;
+    inset: 0;
+    height: auto;
+  }
+  .momentos__head {
+    top: 6vh;
+  }
+  .momentos__title {
+    font-size: clamp(3.6rem, 7.2vw, 8.5rem);
+    /* halo cor de papel: legível se uma foto encostar na letra */
+    text-shadow:
+      0 0 0.14em rgb(245 240 232 / 0.9),
+      0 0 0.4em rgb(245 240 232 / 0.55);
+  }
+  .momentos__sub {
+    bottom: 4vh;
+  }
+  .mstack__item {
+    top: 57%;
+    width: min(56cqw, 900px, calc(68cqh * var(--ar)), var(--nw));
+  }
+}
+@media (min-width: 1024px) and (max-height: 800px) and (prefers-reduced-motion: no-preference) {
+  .mstack__item {
+    top: 56%;
+    width: min(56cqw, 900px, calc(62cqh * var(--ar)), var(--nw));
+  }
+}

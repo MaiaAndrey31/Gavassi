@@ -1,0 +1,8 @@
+{
+  "name": "Heloisa Gavazzi · Festas infantis",
+  "short_name": "Heloisa Gavazzi",
+  "icons": [{ "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }],
+  "theme_color": "#f5f0e8",
+  "background_color": "#f5f0e8",
+  "display": "browser"
+}

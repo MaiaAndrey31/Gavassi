@@ -1,0 +1,195 @@
+/* ============================================================
+   SERVIÇOS — lista editorial com expansão no hover
+   Padrão (toque / sem hover / reduced motion): foto sempre visível entre título e descrição.
+   Hover + ponteiro fino: a foto fica recolhida e a linha cresce para recebê-la (GSAP, ver Servicos.tsx).
+   ============================================================ */
+
+.serv {
+  padding-block: clamp(6rem, 16svh, 12rem);
+  position: relative;
+}
+.serv__head {
+  display: grid;
+  gap: 1.1rem;
+  margin-bottom: clamp(3rem, 8vh, 5.5rem);
+}
+.serv__eyebrow {
+  color: var(--blush-ink);
+}
+.serv__title {
+  font-size: var(--fs-h2);
+  max-width: 14ch;
+}
+
+.serv__list {
+  position: relative;
+}
+.serv__item {
+  position: relative;
+}
+
+/* linha: número | título · foto · descrição · chamada */
+.serv__link {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.6rem minmax(0, 1fr);
+  column-gap: 0.8rem;
+  align-items: baseline;
+  padding: 1.8rem 0 2.2rem;
+}
+.serv__rule {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: color-mix(in srgb, var(--ink) 16%, transparent);
+}
+.serv__rule--end {
+  position: relative;
+  display: block;
+}
+
+.serv__n {
+  grid-column: 1;
+  grid-row: 1;
+  color: var(--ink-3);
+  transition: color 0.5s var(--ease-out);
+}
+.serv__name {
+  grid-column: 2;
+  grid-row: 1;
+  font-size: clamp(2rem, 8.4vw, 5.6rem);
+  line-height: 1;
+  font-weight: 320;
+  transition: color 0.6s var(--ease-out);
+}
+
+/* foto: participa do fluxo do documento (sem absolute/fixed) */
+.serv__media {
+  grid-column: 1 / -1;
+  grid-row: 2;
+}
+.serv__media-inner {
+  padding: 1.5rem 0 0.2rem;
+}
+.serv__figure {
+  width: 100%;
+  aspect-ratio: var(--ar);
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--linen);
+}
+.serv__figure picture {
+  width: 100%;
+  height: 100%;
+}
+.serv__figure img {
+  will-change: transform;
+}
+
+.serv__text {
+  grid-column: 2 / -1;
+  grid-row: 3;
+  margin-top: 0.9rem;
+  max-width: 36ch;
+  color: var(--ink-2);
+}
+
+.serv__cta {
+  grid-column: 2 / -1;
+  grid-row: 4;
+  justify-self: start;
+  margin-top: 1.2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--ink);
+}
+.serv__cta-text {
+  padding-bottom: 3px;
+  border-bottom: 1px solid currentColor;
+}
+.serv__arrow {
+  width: 1.15rem;
+  height: 1.15rem;
+  transition: transform 0.6s var(--ease-out);
+}
+
+@media (min-width: 768px) {
+  .serv__link {
+    grid-template-columns: 4rem minmax(0, 1fr) auto;
+    column-gap: 2rem;
+  }
+  .serv__media {
+    grid-column: 2 / -1;
+  }
+  .serv__figure {
+    /* nunca mais alta que ~34rem: fotos verticais ficam mais estreitas em vez de gigantes */
+    width: min(100%, 44rem, calc(34rem * var(--ar)));
+  }
+  .serv__text {
+    grid-column: 2;
+  }
+  .serv__cta {
+    grid-column: 3;
+    grid-row: 3;
+    align-self: end;
+    justify-self: end;
+    margin-top: 0;
+  }
+}
+
+/* ============================================================
+   HOVER + ponteiro fino (mesma condição de HOVER em Servicos.tsx)
+   ============================================================ */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .serv__link {
+    padding: 2.2rem 0 2.4rem;
+  }
+
+  /* recolhido: a altura é animada por GSAP; a foto cresce até o tamanho da própria proporção */
+  .serv__media {
+    height: 0;
+    overflow: hidden;
+  }
+  .serv__figure {
+    --hmax: clamp(280px, 46vh, 440px);
+    width: min(100%, 52vw, 760px, calc(var(--hmax) * var(--ar)));
+    clip-path: inset(0% 0% 100% 0%);
+  }
+
+  /* título e número mais suaves em repouso; contraste pleno quando ativo */
+  .serv__name {
+    color: color-mix(in srgb, var(--ink) 66%, var(--paper));
+  }
+  .serv__item.is-on .serv__name {
+    color: var(--ink);
+  }
+  .serv__item.is-on .serv__n {
+    color: var(--ink-2);
+  }
+
+  /* chamada: só a seta; desloca para a direita quando ativo */
+  .serv__cta {
+    grid-column: 2 / -1;
+    justify-self: end;
+    align-self: end;
+    margin-top: 0;
+  }
+  .serv__cta-text {
+    display: none;
+  }
+  .serv__arrow {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+  .serv__item.is-on .serv__arrow {
+    transform: translateX(8px);
+  }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) and (min-width: 768px) {
+  .serv__cta {
+    grid-column: 3;
+  }
+}

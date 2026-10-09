@@ -1,0 +1,418 @@
+{
+  "depoimentos/fundo": {
+    "w": 1080,
+    "h": 1920,
+    "widths": [
+      480,
+      768,
+      1024,
+      1080
+    ],
+    "color": "#080808",
+    "lqip": "data:image/webp;base64,UklGRq4AAABXRUJQVlA4IKIAAABQBgCdASoUACQAPt1YpU2opSOiOrZoARAbiUAWo3AQReeMn+xlsxttu5WUZPhjtyge2VbO8ndW5lqfAAD+iz49Vxsp8ObKpF3wlk123NItRfx2phq2Xn0VpC9n2B63VftMg5zMKs/4UXRD5Egox3NbVP7WuUIzuHT6WdE9x0mEuV9At9peFb4c2h6TsUi+f24Iz2wEUYhiYai4wb/FalI/vAA="
+  },
+  "espaco/01-salao": {
+    "w": 3024,
+    "h": 4032,
+    "widths": [
+      480,
+      768,
+      1024,
+      1280,
+      1600,
+      1920,
+      2560
+    ],
+    "color": "#786868",
+    "lqip": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAABQBACdASoUABsAPu1kqE2ppaOiMAgBMB2JYwC+SBRzFKN8Zf5o6YgNyx6gAOGxoKV7CHhoJqkbMMe7nyIVYk6cs95m4B5J1Yh0Ly5/XbJhteTsgW95ojov6N0U8+qmsfo3yoOyGxMRBEJMEpd4mWS//UfsAA=="
+  },
+  "espaco/02-recreacao": {
+    "w": 1500,
+    "h": 844,
+    "widths": [
+      480,
+      768,
+      1024,
+      1280,
+      1500
+    ],
+    "color": "#484848",
+    "lqip": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADwAwCdASoUAAsAPu1mq04ppaQiMAgBMB2JZgC3uCG5Hzubj9Ijs6AAAP3ve3o2JwEAekfm8n6sr2DoGnGYLfMsBVKGdZy/qsn6eU239BCouAAA"
+  },
+  "espaco/03-mesas": {
+    "w": 1500,
+    "h": 844,
+    "widths": [
+      480,
+      768,
+      1024,
+      1280,
+      1500
+    ],
+    "color": "#d8d8c8",
+    "lqip": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADQAwCdASoUAAsAPu1oqk6ppiQiMAgBMB2JZQC7AA+OBX9i4ryrLgAA/FyU6BfhzXBnPSbgmCCI9HuCLEsp3x+z9fyE7SZEk9QAAA=="
+  },
+  "festas/01-fundo-do-mar": {
+    "w": 1500,
+    "h": 844,
+    "widths": [
+      480,
+      768,
+      1024,
+      1280,
+      1500
+    ],
+    "color": "#b8b8b8",
+    "lqip": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAACQAwCdASoUAAsAPu1mq04ppaQiMAgBMB2JYwDE2BZD3HnjJSdQAP6YIxni45rrLvXh1nKe5RieUTipGn8bwCgoaNmcppBTWwPmu2E4AAA="
+  },
+  "festas/02-safari": {
+    "w": 640,
+    "h": 480,
+    "widths": [
+      480,
+      640
+    ],
+    "color": "#888888",
+    "lqip": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAACwAwCdASoUAA8APu1mqk2ppaQiMAgBMB2JYwCdAA4D/oQDT7RPAACenPzMAreL1DMyb9BJ72WkICWwFX77hZWjq3qQbgAhSQAAAA=="
+  },
+  "festas/03-mesa-posta-rosa": {
+    "w": 1500,
+    "h": 844,
+    "widths": [
+      480,
+      768,
+      1024,
+      1280,
+      1500
+    ],
+    "color": "#d8d8d8",
+    "lqip": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAABQAwCdASoUAAsAPu1mqk4ppaOiMAgBMB2JYwAAT6gZZ2dgAADh3hhlouo6KNZsoKMM3JvBAaLv4qK6bejDPCEz7wDwo9v4STmrvDgA"
+  },
+  "festas/04-frozen": {
+    "w": 640,
+    "h": 480,
+    "widths": [
+      480,
+      640
+    ],
+    "color": "#383838",
+    "lqip": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAABQAwCdASoUAA8ALrV2u12jqampiYC0SygGFAHeEvaPGsbmAAD8v3hPqychWD69Fiew+v4n+w5XOdT/7KTWhjOveAAAAA=="
+  },
+  "festas/05-lilas-e-rosa": {
+    "w": 640,
+    "h": 480,
+    "widths": [
+      480,
+      640
+    ],
+    "color": "#989888",
+    "lqip": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAACwAwCdASoUAA8APu1qrU8ppiQiMAgBMB2JZQC/OBWkgaqN3BKBAAD25tBjhaQJMBTtjqgfCsqPL77aop0Ox77/5o0hAAAA"
+  },
+  "festas/06-mesa-posta-azul": {
+    "w": 1500,
+    "h": 844,
+    "widths": [
+      480,
+      768,
+      1024,
+      1280,
+      1500
+    ],
+    "color": "#d8d8c8",
+    "lqip": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADQAwCdASoUAAsAPu1oqk6ppiQiMAgBMB2JZQC7AA+OBX9i4ryrLgAA/FyU6BfhzXBnPSbgmCCI9HuCLEsp3x+z9fyE7SZEk9QAAA=="
+  },
+  "festas/07-rosa-e-pink": {
+    "w": 640,
+    "h": 480,
+    "widths": [
+      480,
+      640
+    ],
+    "color": "#988878",
+    "lqip": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADQAwCdASoUAA8APu1kqk2ppaQiMAgBMB2JQBOgAodOEP1uXUdzjiAA1hySZ6rytYXhBX9I5HK+GpKLdI67bIqjGPhrg1phKAA="
+  },
+  "footer/baloes": {
+    "w": 540,
+    "h": 911,
+    "widths": [
+      320,
+      480,
+      540
+    ],
+    "color": "#d8d8c8",
+    "lqip": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAAAwBQCdASoUACIAPuVgp02pJaOiNVQMASAciWMAqo+ThZ6jy85TyBY3WJY5G1IrD76OAAD+6mpVum1DeeNo6HABRlzJFVg4ivAc2nJN48IJxCUB/sA/zRhOmnA/7sc5yWQ20AxS2WM53H1Vl2GKVX/U20EFF51u4q79icqfOmm2i6I1dlbmb9qhkBcZfS/GAAA="
+  },
+  "hero/fundo-do-mar": {
+    "w": 1500,
+    "h": 911,
+    "widths": [
+      480,
+      768,
+      1024,
+      1280,
+      1500
+    ],
+    "color": "#d8d8c8",
+    "lqip": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAACwAwCdASoUAAwAPu1kqk4ppaQiMAgBMB2JZQDE2BSkiaGKJp/IAAD+1CF3bYRgVRoIC69kIoMtFkN7c8QxicuH6vJkD2X4hP4HeRqrf4cQAA=="
+  },
+  "manifesto/01-rosa-pink": {
+    "w": 900,
+    "h": 810,
+    "widths": [
+      320,
+      480,
+      768,
+      900
+    ],
+    "color": "#586878",
+    "lqip": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAADwBACdASoUABIAPu1aq02ppKQiMBgMATAdiWUAxNgQgwY94QgXd4ctk8Swy3O6HwAA/lHCZAU/mHKv/8J6pL3FoC8w7zja3bFDRhF85NOXQiro0Q2iY+JPiuX0oXgiIjBYigAA"
+  },
+  "manifesto/02-fundo-do-mar-mesa": {
+    "w": 900,
+    "h": 844,
+    "widths": [
+      320,
+      480,
+      768,
+      900
+    ],
+    "color": "#c8c8b8",
+    "lqip": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAADwBACdASoUABMAPu1erE2ppSSiMBgMATAdiWMAw3AQrL8Quv4p9oAljA2wHGhP2AAA/sfNSFylesgko09cjRixPZJbkDcw8KjpMnBlkXIb5auhyo1NNjuoJMWMgHjq5tOeXB+odo8MRpoueHUOQAAA"
+  },
+  "manifesto/03-mesa-posta-rosa": {
+    "w": 870,
+    "h": 776,
+    "widths": [
+      320,
+      480,
+      768,
+      870
+    ],
+    "color": "#d8d8d8",
+    "lqip": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAACQBACdASoUABIAPu1oqU+ppiOiKA1RMB2JYwDGfAlhLtFcFkcKaetdAlZ5rQAA9cwFldHu8szdTsupuzRx1ATsmE4gXEolTyb7GY967FMhuNZzUWao0EsCdtSQegtc8ccGMkAAAAA="
+  },
+  "manifesto/04-fachada-arco": {
+    "w": 1080,
+    "h": 1152,
+    "widths": [
+      320,
+      480,
+      768,
+      1024,
+      1080
+    ],
+    "color": "#080808",
+    "lqip": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAADwBACdASoUABUAPulep02pJSOiN/VYASAdCUAToAINDhteLfd4YBJdvRq/F4hSHAAA+yMCi1RzbJykAm9WZohOOY4JLb82eL3DeVIi1Wl1sFfQzGbHklmMdhxpWy+Ov+XeJwoX0hFupYbLVDfdDHmWbEtX0sxi/AhJdAAA"
+  },
+  "momentos/01-lembrancinhas": {
+    "w": 540,
+    "h": 776,
+    "widths": [
+      320,
+      480,
+      540
+    ],
+    "color": "#b8b8b8",
+    "lqip": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAABQBQCdASoUAB0APulcp02pJSOiN/VYASAdCWYAwNwRRNU0jmH/jt/TBJdewMgh6U9ffYAA/rQnP3FkkuefBrKmdpOS/aioXNH7hEVDdWFNOJtoCB1WNHERxe4HtQHnSX/a7lV00Ipk+TsT/GVWlu4GWOhaxfOhZ49dkeAokwAAAA=="
+  },
+  "momentos/02-tacas": {
+    "w": 675,
+    "h": 549,
+    "widths": [
+      320,
+      480,
+      675
+    ],
+    "color": "#d8d8d8",
+    "lqip": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAACQAwCdASoUABAAPu1iqk2ppaQiMAgBMB2JYgAAMJogM/pIxRZOAPcfGGiJe+n3ADLH2f3dw1DDlCZ3m8YwoUQfhWGkPyKlnVbgc9MItu1czbsIK4AAAA=="
+  },
+  "momentos/03-bolo-fundo-do-mar": {
+    "w": 420,
+    "h": 729,
+    "widths": [
+      320,
+      420
+    ],
+    "color": "#c8c8b8",
+    "lqip": "data:image/webp;base64,UklGRqwAAABXRUJQVlA4IKAAAACQBgCdASoUACMAPu1srE+ppiQiKqoBMB2JYgCdM/5X+BUX8CpsrOyl0ocGeuBb75YyvUlmzTXa5jPqmjBAAP7gnrdUxFW+abdT4jPMDwpKbR/TG9d4da0LkEuz7qhYdbzNRaqpSP9eHQd+/7VhmzXXHt81NoGWmvEbktjywqB+psjgKVpwM1x4owQVkiJDqKKBsWCyRdKIafMzI/qosAAA"
+  },
+  "momentos/04-carrossel-cupcakes": {
+    "w": 690,
+    "h": 717,
+    "widths": [
+      320,
+      480,
+      690
+    ],
+    "color": "#484848",
+    "lqip": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAACwBACdASoUABUAPu1kqE2ppaOiMAgBMB2JZgCsMy/B3+wcs95jS6CV9ketysJAAP7XRSIIi9rGt2AeRbnlUMk3ii2Pwi2ZT0P+9KRYz4JRtlvWyPdpSollFm02inw3dUaes3ESlh+8b1+77zQrfCvJv/xP4wPJoQjUF4nLE82d1U95jlgAAA=="
+  },
+  "momentos/05-carrinho-de-doces": {
+    "w": 480,
+    "h": 640,
+    "widths": [
+      320,
+      480
+    ],
+    "color": "#888878",
+    "lqip": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAAAQBQCdASoUABsAPt1cpE2opSOiN/qoARAbiUAXYAO7qyBB9uX8f59K9+xNOXP6KHkAAProZJSnokhuTAK4UmsxeS60o1dOHrSXe9AmbystsLUZhP/RBNSi1PKIIYzX1L5HXBMQQWVQvLQRAAA="
+  },
+  "momentos/06-guardanapos-azuis": {
+    "w": 630,
+    "h": 354,
+    "widths": [
+      320,
+      480,
+      630
+    ],
+    "color": "#586878",
+    "lqip": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAABQAwCdASoUAAsAPu1krU2ppaSiMAgBMB2JZQCw7BqG6lcmAAD988ojLntKcOnZZhnXAq66Ry/Kr8KtaRWu6KxCzIQKGnYg7swAAA=="
+  },
+  "momentos/07-brinquedao": {
+    "w": 570,
+    "h": 633,
+    "widths": [
+      320,
+      480,
+      570
+    ],
+    "color": "#080808",
+    "lqip": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAADQBACdASoUABYAPu1kqU4ppaOiMAgBMB2JZACdMyGCap6ocRH/z7U/5v4XiG20AAD+ud25Sj7DNPfFpm7BiluaeItXTc2IGBqTt0UQUU+3tyvSCdP+snCPXiBrORp2zkUbbAabAY13OaxyhBuYM97XBz6gEio7QuXwCxjXeDCjTSjheQAAAA=="
+  },
+  "momentos/08-baloes-fundo-do-mar": {
+    "w": 390,
+    "h": 501,
+    "widths": [
+      320,
+      390
+    ],
+    "color": "#a8a898",
+    "lqip": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAABwBACdASoUABoAPulmq02pJiQiMBgMASAdCUAZQAYqUGk5c45obzhvd9zAAAD+jOuBwKQrJOGD+G0t0OCf1akg69s/Vg+/b/j0dxpdiWjLhrf9k+6ntaBalw9hCmM9D9MgAA=="
+  },
+  "momentos/09-baloes-rosa": {
+    "w": 256,
+    "h": 264,
+    "widths": [
+      256
+    ],
+    "color": "#788888",
+    "lqip": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAQBACdASoUABUAPtlepE2oJaOsN/qoAYAbCWUAvkgPX35i01dd9s71AAD28VUO4G+6bp63aASXs5sVvoqVSeUNEVid4xcdICT5q2odR5aX1sRZn0a9ywIT6oQAAA=="
+  },
+  "servicos/01-decoracao": {
+    "w": 1500,
+    "h": 911,
+    "widths": [
+      320,
+      480,
+      768,
+      1024,
+      1500
+    ],
+    "color": "#d8d8c8",
+    "lqip": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAACwAwCdASoUAAwAPu1kqk4ppaQiMAgBMB2JZQDE2BSkiaGKJp/IAAD+1CF3bYRgVRoIC69kIoMtFkN7c8QxicuH6vJkD2X4hP4HeRqrf4cQAA=="
+  },
+  "servicos/02-espaco": {
+    "w": 3024,
+    "h": 2016,
+    "widths": [
+      320,
+      480,
+      768,
+      1024
+    ],
+    "color": "#b8b8a8",
+    "lqip": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAwBACdASoUAA0APu1kqk2ppaQiMAgBMB2JZgC29wAFnjG5UscwiZdZtgAA/rU8wKhOi9Ol2ugewJxlRGsKR+SGIMW1ugxhzVbOc6u7un5Fr2uGqhqarrwyWxSWUAAA"
+  },
+  "servicos/03-buffet": {
+    "w": 1500,
+    "h": 844,
+    "widths": [
+      320,
+      480,
+      768,
+      1024,
+      1500
+    ],
+    "color": "#d8d8d8",
+    "lqip": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAABQAwCdASoUAAsAPu1mqk4ppaOiMAgBMB2JYwAAT6gZZ2dgAADh3hhlouo6KNZsoKMM3JvBAaLv4qK6bejDPCEz7wDwo9v4STmrvDgA"
+  },
+  "servicos/04-recreacao": {
+    "w": 1500,
+    "h": 844,
+    "widths": [
+      320,
+      480,
+      768,
+      1024,
+      1500
+    ],
+    "color": "#080808",
+    "lqip": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAACwAwCdASoUAAsAPu1orU6ppiSiMAgBMB2JYwCdABPRFeHVywoM6AD+oflhAtPt84XQ9Gl5IH6HBU2/bC7IdtvKgciI38Dy3jDRp78ExUnRgTwwAAA="
+  },
+  "servicos/05-eventos-externos": {
+    "w": 1400,
+    "h": 2489,
+    "widths": [
+      320,
+      480,
+      768,
+      1024,
+      1400
+    ],
+    "color": "#282828",
+    "lqip": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAABQBQCdASoUACQAPuVkp02pJiOiNVgIASAciWMAyrQRRBJKgK/i0dgu1QFtsP3DvXrKnUAA/rnZkHI3Tt14m0Q1UaD+rOtp6mhB9L6uUr0LK2rMCTJkwwe0iXqhQXxRyDGPcC/BxSTGSwJgx5VmKkMHnmIOusx5Z2k/R9vmjS6D659WbmAAAA=="
+  },
+  "trajetoria/01-comeco": {
+    "w": 1800,
+    "h": 2700,
+    "widths": [
+      480,
+      768,
+      1024,
+      1280,
+      1600,
+      1800
+    ],
+    "color": "#183868",
+    "lqip": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAADQBQCdASoUAB4APuVipk2pJaOiMAwBIByJagCdM2h+MIACaTLGKzkPx4MBMv5tpV0U4HPB3HFwAP7o30WsT5/wJ+tUGiuxzsVahpMd9gzqujfgGngqE3qurPpbCs6zQaOwhdHlLM0BKoZYYgspsGBwn584VqzL3bEtrTciPS7Io7fdJAA="
+  },
+  "trajetoria/02-quinze-anos": {
+    "w": 1800,
+    "h": 2448,
+    "widths": [
+      480,
+      768,
+      1024,
+      1280,
+      1600,
+      1800
+    ],
+    "color": "#080808",
+    "lqip": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAADQBQCdASoUABsAPu1qr1CppaQiqAqpMB2JZgCdM4CBo125ZFpJ9EZ4tFs9HFTFAyFYZw4Ip1AAAP7xERxRG9nJaIuAGZ6qx7A4cnI7imQjgr2H4lLpYlrwlt8FdO6JJPX/EshhaGFnD4c7yc/stgMj5otOGkyApdfW/JqLJxtN9jP4TCnWy3hsIt+GboVjJ8uGzuNj7muAAA=="
+  },
+  "trajetoria/03-espaco-proprio": {
+    "w": 1500,
+    "h": 844,
+    "widths": [
+      480,
+      768,
+      1024,
+      1280,
+      1500
+    ],
+    "color": "#080808",
+    "lqip": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAACwAwCdASoUAAsAPu1orU6ppiSiMAgBMB2JYwCdABPRFeHVywoM6AD+oflhAtPt84XQ9Gl5IH6HBU2/bC7IdtvKgciI38Dy3jDRp78ExUnRgTwwAAA="
+  },
+  "trajetoria/04-hoje": {
+    "w": 1080,
+    "h": 1920,
+    "widths": [
+      480,
+      768,
+      1024,
+      1080
+    ],
+    "color": "#181808",
+    "lqip": "data:image/webp;base64,UklGRtAAAABXRUJQVlA4IMQAAABQBgCdASoUACQAPt1Qp02opCOiNVv8ARAbiWYAnTMDdTg7IJ1JHCHFhzb9pj7F2pVD5sbxbfl4o5BP4AD72LCQAD8mi0odUQv6I3EZTuN5AszkKz46eAWzkzCCZuUCi6wO9LRHMa+rucuJVOzDDNYKo8p0o8Sp4dGpQznn+szHag4VnRgivmSzxmr3IQycdsdypeDBFNKSU47x+LXMU1Ju7XB10qZ/7TrYTBh1QGTIrHCh6xb0ZNM2N51ozgDWWyoTOAAA"
+  }
+}

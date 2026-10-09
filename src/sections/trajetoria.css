@@ -1,0 +1,201 @@
+/* ============================================================
+   TRAJETÓRIA
+   ============================================================ */
+
+.traj {
+  padding-top: clamp(6rem, 16vh, 12rem);
+}
+.traj__head {
+  display: grid;
+  gap: 1.2rem;
+  margin-bottom: clamp(3rem, 8vh, 6rem);
+}
+.traj__eyebrow {
+  color: var(--blush-ink);
+}
+.traj__title {
+  font-size: var(--fs-h2);
+  max-width: 13ch;
+}
+
+.traj__label {
+  color: var(--ink-2);
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+.traj__mark-inline {
+  display: none;
+}
+.traj__chapter-title {
+  font-size: var(--fs-h3);
+  line-height: 1.05;
+  margin-top: 0.9rem;
+}
+.traj__quote {
+  margin-top: 1.4rem;
+  max-width: 34ch;
+}
+.traj__quote p {
+  font-size: var(--fs-lead);
+  line-height: 1.5;
+  color: var(--ink-2);
+  font-weight: 380;
+}
+.traj__quote cite {
+  display: block;
+  margin-top: 1rem;
+  font-style: normal;
+  color: var(--ink-3);
+}
+
+/* ---------- capítulos (padrão: mobile / reduced motion) ---------- */
+
+.traj__stage {
+  display: none;
+}
+.traj__chapters {
+  display: grid;
+  gap: clamp(5rem, 14vh, 9rem);
+  padding-bottom: clamp(5rem, 14vh, 9rem);
+}
+.traj__chapter {
+  display: grid;
+}
+.traj__chapter-mark {
+  font-size: clamp(5rem, 26vw, 10rem);
+  font-weight: 280;
+  line-height: 0.85;
+  color: var(--ink);
+  margin-bottom: -0.32em;
+  position: relative;
+  z-index: 2;
+  mix-blend-mode: multiply;
+}
+.traj__chapter .traj__shot {
+  /* retratos trazem a própria proporção (--ar-m / --ar-t, ver `frame` em content/site.ts) */
+  aspect-ratio: var(--ar-m, 4 / 5);
+  overflow: hidden;
+  border-radius: 50vw 50vw 0 0;
+  margin-bottom: 1.8rem;
+}
+.traj__chapter .traj__shot picture {
+  width: 100%;
+  height: 100%;
+
+}
+.traj__chapter:nth-child(even) .traj__chapter-mark {
+  text-align: right;
+}
+
+@media (min-width: 768px) {
+  .traj__chapter {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 4vw;
+    align-items: end;
+  }
+  .traj__chapter-mark {
+    grid-column: 1 / -1;
+  }
+  .traj__chapter .traj__shot {
+    grid-row: 2 / span 3;
+    margin: 0;
+    aspect-ratio: var(--ar-t, 4 / 5);
+  }
+}
+
+/* ============================================================
+   DESKTOP COM MOVIMENTO — palco fixo
+   ============================================================ */
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  .traj__chapters {
+    display: none;
+  }
+  .traj__stage {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    height: 100vh;
+    overflow: hidden;
+  }
+  .traj__copy {
+    position: relative;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    padding: 9vh var(--gutter) 8vh;
+  }
+  .traj__marks {
+    height: 1.12em;
+    overflow: hidden;
+    font-size: clamp(6rem, 12vw, 13rem);
+    line-height: 1.12;
+  }
+  .traj__marks-track {
+    display: flex;
+    flex-direction: column;
+    will-change: transform;
+  }
+  .traj__mark {
+    display: block;
+    height: 1.12em;
+    line-height: 1.12;
+    font-weight: 280;
+    letter-spacing: -0.045em;
+  }
+  .traj__texts {
+    display: grid;
+    align-self: end;
+    padding-bottom: 6vh;
+  }
+  .traj__text {
+    grid-area: 1 / 1;
+    overflow: hidden;
+    padding-bottom: 0.3rem;
+  }
+  .traj__reveal {
+    will-change: transform;
+  }
+  .traj__progress {
+    height: 1px;
+    width: min(18rem, 60%);
+    background: color-mix(in srgb, var(--ink) 15%, transparent);
+  }
+  .traj__progress i {
+    display: block;
+    height: 100%;
+    background: var(--ink);
+    transform: scaleX(0.25);
+    transform-origin: 0 50%;
+  }
+  .traj__media {
+    position: relative;
+    margin: 4vh var(--gutter) 4vh 0;
+  }
+  .traj__frame {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    will-change: clip-path;
+  }
+  .traj__frame .traj__shot {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    will-change: clip-path;
+  }
+  .traj__frame .traj__shot picture {
+    width: 100%;
+    height: 100%;
+  }
+  /* retrato: o container adota a proporção da foto (--ar = largura/altura), à direita da coluna.
+     Altura = a da coluna de imagem (~92vh); a largura segue a proporção, limitada à coluna.
+     Espelha a moldura calculada em Trajetoria.tsx (shape). */
+  .traj__frame .traj__shot[data-portrait] {
+    inset: 0 0 0 auto;
+    width: auto;
+    max-width: 100%;
+    aspect-ratio: var(--ar);
+  }
+  .traj__frame .traj__shot img {
+    will-change: transform;
+  }
+}

@@ -1,0 +1,225 @@
+/* ============================================================
+   FESTAS — galeria
+   Padrão (mobile / reduced motion): carrossel nativo com snap.
+   Desktop com movimento: trilho horizontal fixo controlado pelo scroll.
+   ============================================================ */
+
+.festas {
+  --tint: var(--paper);
+  background-color: var(--tint);
+  transition: background-color 1.1s var(--ease-out);
+  padding: clamp(5rem, 14svh, 9rem) 0;
+}
+
+.festas__intro {
+  padding-inline: var(--gutter);
+  margin-bottom: 2.6rem;
+  display: grid;
+  gap: 1.1rem;
+}
+.festas__eyebrow {
+  color: var(--blush-ink);
+}
+.festas__intro-title {
+  font-size: var(--fs-h1);
+}
+.festas__intro-title em {
+  color: var(--blush-ink);
+}
+.festas__hint {
+  display: none;
+}
+
+.festas__track {
+  display: flex;
+  gap: 4vw;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--gutter);
+  padding: 0 var(--gutter) 0.5rem;
+  scrollbar-width: none;
+}
+.festas__track::-webkit-scrollbar {
+  display: none;
+}
+.festas__spacer {
+  display: none;
+}
+
+.festa {
+  flex: 0 0 82vw;
+  scroll-snap-align: center;
+  transition: opacity 0.7s var(--ease-out);
+}
+.festa:not(.is-active) {
+  opacity: 0.62;
+}
+.festa__media {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 2px;
+  transform: scale(0.94);
+  transform-origin: 50% 50%;
+  transition: transform 0.9s var(--ease-out);
+}
+.festa.is-active .festa__media {
+  transform: none;
+}
+.festa__media picture {
+  width: 100%;
+  height: 100%;
+}
+
+.festa__caption {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: baseline;
+  column-gap: 1.2rem;
+  row-gap: 0.35rem;
+  padding-top: 1.2rem;
+}
+.festa__n {
+  color: var(--ink-3);
+  transition: opacity 0.6s var(--ease-out);
+}
+.festa__name {
+  font-size: clamp(1.6rem, 6vw, 2.6rem);
+  line-height: 1.05;
+}
+.festa__name .mask > span {
+  transform: translateY(110%);
+  transition: transform 0.9s var(--ease-out);
+}
+.festa.is-active .festa__name .mask > span {
+  transform: none;
+}
+.festa__detail {
+  grid-column: 2;
+  color: var(--ink-2);
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 0.6s var(--ease-out) 0.15s,
+    transform 0.6s var(--ease-out) 0.15s;
+}
+.festa.is-active .festa__detail {
+  opacity: 1;
+  transform: none;
+}
+
+.festas__outro {
+  flex: 0 0 70vw;
+  scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.6rem;
+  padding-right: var(--gutter);
+}
+.festas__outro-title {
+  font-size: clamp(2.2rem, 9vw, 4.8rem);
+  line-height: 0.98;
+}
+.festas__outro-title em {
+  color: var(--blush-ink);
+}
+.festas__more {
+  align-self: flex-start;
+}
+
+@media (min-width: 768px) {
+  .festa {
+    flex-basis: 64vw;
+  }
+  .festa__media {
+    aspect-ratio: 4 / 3;
+  }
+  .festas__outro {
+    flex-basis: 44vw;
+  }
+}
+
+/* ============================================================
+   DESKTOP COM MOVIMENTO
+   ============================================================ */
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  .festas {
+    padding: 0;
+  }
+  .festas__stage {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+  .festas__intro {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: calc(34vw + var(--gutter));
+    margin: 0;
+    align-content: center;
+    will-change: transform;
+  }
+  .festas__hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 1.4rem;
+    color: var(--ink);
+  }
+  .festas__track {
+    overflow: visible;
+    scroll-snap-type: none;
+    padding: 0 19vw 0 0;
+    gap: 5vw;
+    align-items: center;
+    will-change: transform;
+  }
+  .festas__spacer {
+    display: block;
+    flex: 0 0 calc(34vw + var(--gutter) * 2);
+  }
+  /* o slide assume a proporção da própria foto (sem corte); a altura nunca passa de ~66vh */
+  .festa {
+    flex: 0 0 auto;
+    width: min(60vw, calc(66vh * var(--ar)));
+    will-change: opacity;
+    transition: none;
+  }
+  /* fotos de 640px: área menor, sem ampliar além do original em telas comuns */
+  .festa--compact {
+    width: min(40vw, 640px, calc(58vh * var(--ar)));
+  }
+  .festa:not(.is-active) {
+    opacity: 1; /* opacidade controlada pelo scroll */
+  }
+  .festa__media,
+  .festa.is-active .festa__media {
+    aspect-ratio: var(--ar);
+    height: auto;
+    transform: none;
+    transition: none;
+    will-change: transform;
+  }
+  .festa__media img {
+    will-change: transform;
+  }
+  .festa__caption {
+    padding-top: 1.5rem;
+  }
+  .festa__name {
+    font-size: clamp(1.8rem, 2.4vw, 2.8rem);
+  }
+  .festas__outro {
+    flex: 0 0 30vw;
+    padding: 0;
+  }
+  .festas__outro-title {
+    font-size: clamp(2.6rem, 4.6vw, 5.4rem);
+  }
+}
